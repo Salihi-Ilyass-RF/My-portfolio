@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guide de Création - Accès Restreint</title>
+    <link rel="icon" type="image/png" href="photos/NERD-NEXUS.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            transition: background 0.5s ease;
+        }
+
+        body.theme-endra {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        body.theme-normal {
+            background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+        }
+
+        .controls-bar {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 100;
+        }
+
+        .switcher-group {
+            display: flex;
+            gap: 5px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 5px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .ctrl-btn {
+            padding: 7px 13px;
+            background: transparent;
+            border: none;
+            color: white;
+            cursor: pointer;
+            border-radius: 15px;
+            font-weight: 600;
+            font-size: 0.85em;
+            transition: all 0.3s ease;
+        }
+
+        .ctrl-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .ctrl-btn.active {
+            background: rgba(255, 215, 0, 0.4);
+            color: #ffd700;
+        }
+
+        body.theme-normal .ctrl-btn.active {
+            background: rgba(52, 152, 219, 0.5);
+            color: #3498db;
+        }
+
+        .access-container {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 500px;
+            width: 100%;
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+            text-align: center;
+            animation: slideIn 0.5s ease;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(-30px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .lock-icon {
+            font-size: 5em;
+            margin-bottom: 20px;
+            display: block;
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50%       { transform: translateY(-20px); }
+        }
+
+        h1 {
+            color: white;
+            font-size: 2em;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .subtitle {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .guide-preview {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .guide-preview h3 {
+            color: #ffd700;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+            transition: color 0.3s ease;
+        }
+
+        body.theme-normal .guide-preview h3 { color: #3498db; }
+
+        .guide-preview ul { list-style: none; }
+
+        .guide-preview li {
+            color: rgba(255, 255, 255, 0.85);
+            padding: 7px 0 7px 28px;
+            position: relative;
+            font-size: 0.95em;
+        }
+
+        .guide-preview li::before {
+            content: "📚";
+            position: absolute;
+            left: 0;
+        }
+
+        .info-box {
+            background: rgba(255, 193, 7, 0.2);
+            border: 1px solid rgba(255, 193, 7, 0.5);
+            border-radius: 10px;
+            padding: 14px;
+            margin-bottom: 25px;
+            color: #ffd700;
+            font-size: 0.95em;
+            transition: all 0.3s ease;
+        }
+
+        body.theme-normal .info-box {
+            background: rgba(52, 152, 219, 0.15);
+            border-color: rgba(52, 152, 219, 0.4);
+            color: #7ecfff;
+        }
+
+        .buttons-container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .btn {
+            padding: 14px 30px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.05em;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn:hover::before { left: 100%; }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #ffd700, #a0f0ed);
+            color: #2c3e50;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+        }
+
+        body.theme-normal .btn-primary {
+            background: linear-gradient(135deg, #3498db, #5dade2);
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 215, 0, 0.5);
+        }
+
+        body.theme-normal .btn-primary:hover {
+            box-shadow: 0 6px 20px rgba(52, 152, 219, 0.5);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 480px) {
+            .access-container { padding: 30px 20px; }
+            h1 { font-size: 1.6em; }
+            .lock-icon { font-size: 4em; }
+            .controls-bar { top: 10px; right: 10px; }
+        }
+    </style>
+</head>
+<body class="theme-endra">
+
+    <!--<div class="controls-bar">
+        <div class="switcher-group" id="themeSwitcher">
+            <button class="ctrl-btn active" onclick="changeTheme('endra')" data-theme="endra">🎨 ENDRA</button>
+            <button class="ctrl-btn" onclick="changeTheme('normal')" data-theme="normal">🌙 NORMAL</button>
+        </div>
+        <div class="switcher-group" id="langSwitcher">
+            <button class="ctrl-btn active" onclick="changeLang('fr')" data-lang="fr">🇫🇷 FR</button>
+            <button class="ctrl-btn" onclick="changeLang('en')" data-lang="en">🇬🇧 EN</button>
+        </div>
+    </div>-->
+
+    <div class="access-container">
+        <span class="lock-icon">🔒</span>
+
+        <h1 id="title">Accès Restreint</h1>
+
+        <p class="subtitle" id="subtitle">
+            Le Guide de Création est une ressource exclusive réservée aux membres connectés.
+            Connectez-vous ou créez un compte pour accéder au contenu complet.
+        </p>
+
+        <div class="guide-preview">
+            <h3 id="previewTitle">✨ Ce que vous découvrirez :</h3>
+            <ul id="previewList">
+                <li>Les technologies utilisées (HTML, CSS, JavaScript)</li>
+                <li>Architecture et structure du site</li>
+                <li>Animations et effets visuels</li>
+                <li>Système d'authentification</li>
+                <li>Gestion des commentaires</li>
+                <li>Conseils et astuces de développement</li>
+            </ul>
+        </div>
+
+        <div class="info-box" id="infoBox">
+            💡 Astuce : L'inscription est gratuite et ne prend que quelques secondes !
+        </div>
+
+        <div class="buttons-container">
+            <a href="contact.html" class="btn btn-primary" id="btnLogin">🔐 Se connecter / S'inscrire</a>
+            <a href="accueil.html" class="btn btn-secondary" id="btnHome">🏠 Retour à l'accueil</a>
+        </div>
+    </div>
+
+    <script src="script-guide-acces.js"></script>
+</body>
+</html>

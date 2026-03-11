@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Portfolio</title>
+    <link rel="icon" type="image/png" href="photos/NERD-NEXUS.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="theme-endra">
+    <div class="grid-content">
+        <header>
+            <div class="controls-container">
+                <div class="theme-switcher">
+                    <button class="theme-btn active" onclick="changeTheme('endra')">🎨 ENDRA</button>
+                    <button class="theme-btn" onclick="changeTheme('normal')">🌙 NORMAL</button>
+                </div>
+                <div class="lang-switcher">
+                    <button class="lang-btn active" onclick="changeLanguage('fr')">🇫🇷 FR</button>
+                    <button class="lang-btn" onclick="changeLanguage('en')">🇬🇧 EN</button>
+                </div>
+            </div>
+            <div class="profile-container">
+                <img src="photos/Anime2.gif" alt="Photo de profil" class="profile-img">
+            </div>
+            <h1 data-fr="Page d'accueil" data-en="Home Page">Page d'accueil</h1>
+            <p class="header-subtitle" data-fr="Développeur Web & Étudiant en Génie Informatique" data-en="Web Developer & Computer Engineering Student">Développeur Web & Étudiant en Génie Informatique</p>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="accueil.html" class="active" data-fr="🏠 Accueil" data-en="🏠 Home">🏠 Accueil</a></li>
+                <li><a href="services.html" data-fr="💼 Services" data-en="💼 Services">💼 Services</a></li>
+                <li><a href="propos.html" data-fr="👤 À propos" data-en="👤 About">👤 À propos</a></li>
+                <li><a href="portfolio.html" data-fr="📁 Portfolio" data-en="📁 Portfolio">📁 Portfolio</a></li>
+                <li><a href="equipe.html" data-fr="👥 Équipe" data-en="👥 Team">👥 Équipe</a></li>
+                <li><a href="contact.html" data-fr="📧 Contact" data-en="📧 Contact">📧 Contact</a></li>
+            </ul>
+        </nav>
+
+        <aside>
+            <h3 data-fr="🎯 Profil" data-en="🎯 Profile">🎯 Profil</h3>
+
+            <div class="sidebar-section">
+                <h4 data-fr="💻 Compétences" data-en="💻 Skills">💻 Compétences</h4>
+                <div class="skill-item">HTML5 / CSS3</div>
+                <div class="skill-item">JavaScript / React</div>
+                <div class="skill-item">Python / Java</div>
+                <div class="skill-item">Git / GitHub</div>
+                <div class="skill-item">SQL / Databases</div>
+            </div>
+
+            <div class="sidebar-section">
+                <h4 data-fr="🎓 Formation" data-en="🎓 Education">🎓 Formation</h4>
+                <div class="skill-item">
+                    <strong data-fr="Génie Informatique" data-en="Computer Engineering">Génie Informatique</strong><br>
+                    <span data-fr="Université Mohammed Premier" data-en="Mohammed Premier University">Université Mohammed Premier</span><br>
+                    <span data-fr="Oujda, Maroc" data-en="Oujda, Morocco">Oujda, Maroc</span>
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <h4 data-fr="📞 Contact" data-en="📞 Contact">📞 Contact</h4>
+                <div class="contact-item">
+                    <span class="contact-icon">📧</span>
+                    <span>salihiilyad@gmail.com</span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">📱</span>
+                    <span>+212 611858365</span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">📍</span>
+                    <span data-fr="Oujda, Maroc" data-en="Oujda, Morocco">Oujda, Maroc</span>
+                </div>
+            </div>
+        </aside>
+
+        <main>
+            <article>
+                <h2 id="welcome-title">👋 Bienvenue sur mon site</h2>
+                <p id="intro-text">
+                    Étudiant en génie informatique à l'Université Mohammed Premier, Oujda. Passionné par le développement web et la programmation, je m'efforce constamment d'apprendre et de maîtriser les nouvelles technologies.
+                </p>
+
+                <div class="highlight-box">
+                    <p id="mission-text">
+                        <strong data-fr="🚀 Ma Mission :" data-en="🚀 My Mission:">🚀 Ma Mission :</strong>
+                        <span id="mission-content">Je mets mes compétences au service de vos projets pour créer des solutions innovantes et performantes. Que ce soit pour un site web, une application ou tout autre projet numérique, je suis là pour vous accompagner.</span>
+                    </p>
+                </div>
+
+                <p id="discovery-text" style="margin-top: 20px;">
+                    Sur ce site, vous découvrirez mon parcours, mes compétences techniques, les services que je propose ainsi que les projets sur lesquels j'ai travaillé. Chaque projet est une opportunité d'apprendre, de grandir et de repousser mes limites.
+                </p>
+
+                <h2 id="stats-title" style="margin-top: 40px;">📊 En Chiffres</h2>
+                <div class="stats-container">
+                    <div class="stat-card">
+                        <span class="stat-number">3+</span>
+                        <span class="stat-label" data-fr="Projets Réalisés" data-en="Completed Projects">Projets Réalisés</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">2+</span>
+                        <span class="stat-label" data-fr="Ans d'Expérience" data-en="Years of Experience">Ans d'Expérience</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">5+</span>
+                        <span class="stat-label" data-fr="Technologies Maîtrisées" data-en="Mastered Technologies">Technologies Maîtrisées</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">0+</span>
+                        <span class="stat-label" data-fr="Satisfaction Client" data-en="Client Satisfaction">Satisfaction Client</span>
+                    </div>
+                </div>
+
+                <p id="contact-text" style="margin-top: 30px;">
+                    N'hésitez pas à me contacter pour discuter de vos projets ou simplement pour échanger sur les dernières tendances en développement web. Je suis toujours ouvert aux nouvelles opportunités et collaborations !
+                </p>
+            </article>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Mon Portfolio - <span data-fr="Tous droits réservés" data-en="All rights reserved">Tous droits réservés</span></p>
+            <p style="margin-top: 10px; opacity: 0.8;" data-fr="Développé avec passion 💙" data-en="Developed with passion 💙">Développé avec passion 💙</p>
+            <div class="social-links">
+                <a href="https://github.com/ilyasssalihi192-art" title="GitHub">💻</a>
+                <a href="https://www.linkedin.com/in/ilyass-salihi-307193352" title="LinkedIn">💼</a>
+                <a href="https://www.instagram.com/sali__ilyass__rf?igsh=MmJzd3hrOTF0bXc=" title="Instagram">📷</a>
+                <a href="https://www.facebook.com/share/1d7EBG7j52/" title="Facebook">🐦</a>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script-common.js"></script>
+    <script src="script-accueil.js"></script>
+</body>
+</html> 

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services</title>
+    <link rel="icon" type="image/png" href="photos/NERD-NEXUS.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="theme-endra">
+    <div class="grid-content">
+        <header>
+            <div class="controls-container">
+                <div class="theme-switcher">
+                    <button class="theme-btn active" onclick="changeTheme('endra')">🎨 ENDRA</button>
+                    <button class="theme-btn" onclick="changeTheme('normal')">🌙 NORMAL</button>
+                </div>
+                <div class="lang-switcher">
+                    <button class="lang-btn active" onclick="changeLanguage('fr')">🇫🇷 FR</button>
+                    <button class="lang-btn" onclick="changeLanguage('en')">🇬🇧 EN</button>
+                </div>
+            </div>
+            <div class="profile-container">
+                <img src="photos/Anime2.gif" alt="Photo de profil" class="profile-img">
+            </div>
+            <h1 data-fr="Services" data-en="Services">Services</h1>
+            <p class="header-subtitle" data-fr="Développeur Web & Étudiant en Génie Informatique" data-en="Web Developer & Computer Engineering Student">Développeur Web & Étudiant en Génie Informatique</p>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="accueil.html" data-fr="🏠 Accueil" data-en="🏠 Home">🏠 Accueil</a></li>
+                <li><a href="services.html" class="active" data-fr="💼 Services" data-en="💼 Services">💼 Services</a></li>
+                <li><a href="propos.html" data-fr="👤 À propos" data-en="👤 About">👤 À propos</a></li>
+                <li><a href="portfolio.html" data-fr="📁 Portfolio" data-en="📁 Portfolio">📁 Portfolio</a></li>
+                <li><a href="equipe.html" data-fr="👥 Équipe" data-en="👥 Team">👥 Équipe</a></li>
+                <li><a href="contact.html" data-fr="📧 Contact" data-en="📧 Contact">📧 Contact</a></li>
+            </ul>
+        </nav>
+
+        <aside>
+            <h3 data-fr="📂 Catégories" data-en="📂 Categories">📂 Catégories</h3>
+            <div class="sidebar-section">
+                <h4 data-fr="🎯 Domaines d'expertise" data-en="🎯 Areas of Expertise">🎯 Domaines d'expertise</h4>
+                <div class="service-category" onclick="highlightService('design')" data-category="design"><span data-fr="🎨 Design Web" data-en="🎨 Web Design">🎨 Design Web</span></div>
+                <div class="service-category" onclick="highlightService('development')" data-category="development"><span data-fr="💻 Développement" data-en="💻 Development">💻 Développement</span></div>
+                <div class="service-category" onclick="highlightService('mobile')" data-category="mobile"><span data-fr="📱 Applications Mobile" data-en="📱 Mobile Apps">📱 Applications Mobile</span></div>
+                <div class="service-category" onclick="highlightService('marketing')" data-category="marketing"><span data-fr="🚀 Marketing Digital" data-en="🚀 Digital Marketing">🚀 Marketing Digital</span></div>
+                <div class="service-category" onclick="highlightService('security')" data-category="security"><span data-fr="🔒 Sécurité" data-en="🔒 Security">🔒 Sécurité</span></div>
+                <div class="service-category" onclick="highlightService('maintenance')" data-category="maintenance"><span data-fr="⚙️ Maintenance" data-en="⚙️ Maintenance">⚙️ Maintenance</span></div>
+            </div>
+            <div class="sidebar-section">
+                <div class="stats-box">
+                    <h4 style="color: #ffd700; margin-bottom: 15px;" data-fr="📊 Nos Chiffres" data-en="📊 Our Numbers">📊 Nos Chiffres</h4>
+                    <p><strong>0+</strong> <span data-fr="Clients satisfaits" data-en="Satisfied clients">Clients satisfaits</span></p>
+                    <p><strong>3+</strong> <span data-fr="Projets réalisés" data-en="Completed projects">Projets réalisés</span></p>
+                    <p><strong>2+</strong> <span data-fr="Ans d'expérience" data-en="Years of experience">Ans d'expérience</span></p>
+                    <p><strong>24/7</strong> <span data-fr="Support disponible" data-en="Available support">Support disponible</span></p>
+                </div>
+            </div>
+            <div class="contact-box">
+                <h4 data-fr="💬 Besoin d'aide ?" data-en="💬 Need help?">💬 Besoin d'aide ?</h4>
+                <div class="contact-item"><span>📧</span><span>salihiilyad@gmail.com</span></div>
+                <div class="contact-item"><span>📱</span><span>+212 611858365</span></div>
+                <div class="contact-item"><span>⏰</span><span data-fr="Sam-Dim: 12h-22h" data-en="Sat-Sun: 12am-10pm">Sam-Dim: 12h-22h</span></div>
+            </div>
+        </aside>
+
+        <main>
+            <section class="services-section">
+                <h2 id="main-title">🌟 Nos Services</h2>
+                <p class="section-intro" id="intro-text">Découvrez notre gamme complète de services professionnels. Nous mettons notre expertise à votre service pour concrétiser vos projets digitaux avec excellence et innovation.</p>
+
+                <div class="services-grid">
+                    <div class="service-card" data-service="design">
+                        <span class="service-icon">🎨</span>
+                        <h3 id="service1-title">Design Web</h3>
+                        <p id="service1-desc">Création de designs modernes et attractifs pour votre site web. Interface utilisateur intuitive et responsive adaptée à tous les écrans.</p>
+                    </div>
+                    <div class="service-card" data-service="development">
+                        <span class="service-icon">💻</span>
+                        <h3 id="service2-title">Développement</h3>
+                        <p id="service2-desc">Développement d'applications web performantes avec les dernières technologies. Code propre, maintenable et optimisé pour la performance.</p>
+                    </div>
+                    <div class="service-card" data-service="mobile">
+                        <span class="service-icon">📱</span>
+                        <h3 id="service3-title">Applications Mobile</h3>
+                        <p id="service3-desc">Création d'applications mobiles natives et hybrides pour iOS et Android. Expérience utilisateur optimale et fonctionnalités avancées.</p>
+                    </div>
+                    <div class="service-card" data-service="marketing">
+                        <span class="service-icon">🚀</span>
+                        <h3 id="service4-title">Marketing Digital</h3>
+                        <p id="service4-desc">Stratégies de marketing digital pour augmenter votre visibilité en ligne. SEO, réseaux sociaux, publicité et analytics.</p>
+                    </div>
+                    <div class="service-card" data-service="security">
+                        <span class="service-icon">🔒</span>
+                        <h3 id="service5-title">Sécurité</h3>
+                        <p id="service5-desc">Audit et sécurisation de vos applications web. Protection contre les vulnérabilités, conformité RGPD et tests de pénétration.</p>
+                    </div>
+                    <div class="service-card" data-service="maintenance">
+                        <span class="service-icon">⚙️</span>
+                        <h3 id="service6-title">Maintenance</h3>
+                        <p id="service6-desc">Support technique et maintenance continue de vos projets. Mise à jour régulière, correction de bugs et assistance 24/7.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Mon Portfolio - <span data-fr="Tous droits réservés" data-en="All rights reserved">Tous droits réservés</span></p>
+            <p style="margin-top: 10px; opacity: 0.8;" data-fr="Développé avec passion 💙" data-en="Developed with passion 💙">Développé avec passion 💙</p>
+            <div class="social-links">
+                <a href="https://github.com/ilyasssalihi192-art" title="GitHub">💻</a>
+                <a href="https://www.linkedin.com/in/ilyass-salihi-307193352" title="LinkedIn">💼</a>
+                <a href="https://www.instagram.com/sali__ilyass__rf?igsh=MmJzd3hrOTF0bXc=" title="Instagram">📷</a>
+                <a href="https://www.facebook.com/share/1d7EBG7j52/" title="Facebook">🐦</a>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script-common.js"></script>
+    <script src="script-services.js"></script>
+</body>
+</html>
